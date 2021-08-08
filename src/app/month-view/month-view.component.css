@@ -1,0 +1,45 @@
+.calendar {
+  background-color: aquamarine;
+  border-spacing: 0px 0px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-right-style: solid;
+  border-right-width: 1px;
+}
+
+.calendarText {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding: 5px;
+  text-align: center;
+}
+
+.day {
+  background-color: white;
+}
+
+.dayFrame {
+  border-style: solid;
+  border-width: 1px;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+}
+
+.normalDay {
+  color: black;
+}
+
+.otherMonthDay {
+  color: gray;
+}
+
+.today {
+  color: red;
+}
+
+.workingDay {
+  background-color: white;
+}
+
+.offWork {
+  background-color: darkgray;
+}
