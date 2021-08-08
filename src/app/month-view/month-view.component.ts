@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import * as moment from 'node_modules/moment';
 
 class DayElement {
@@ -17,6 +17,8 @@ export class MonthViewComponent implements OnInit {
   
   @Input() date: any;
   @Input() numberofWeeksShown: any;
+  @Output() nextClick = new EventEmitter<void>();
+  @Output() previousClick = new EventEmitter<void>();
 
   days: Array<Array<DayElement>> = [];
   weeks: Array<number> = [];
@@ -58,6 +60,18 @@ export class MonthViewComponent implements OnInit {
       }
       this.days[w] = week;
     }
+  }
+
+  onPrevious(): void{
+    this.previousClick.emit();
+  }
+
+  onNext(): void {
+    this.nextClick.emit();
+  }
+
+  test() {
+    console.log("Test");
   }
 
 }

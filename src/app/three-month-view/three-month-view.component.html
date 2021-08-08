@@ -1,13 +1,31 @@
 <table>
   <tr>
     <td>
-      <app-month-view [date]='getPreviousMonth()' [numberofWeeksShown]='6'></app-month-view>
+      <app-month-view
+        #previousMonthView 
+        [date]='previousMonth' 
+        [numberofWeeksShown]='6'
+        (nextClick)='onNextClick()'
+        (previousClick)='onPreviousClick()'
+      ></app-month-view>
     </td>
     <td>
-      <app-month-view [date]='getCurrentMonth()' [numberofWeeksShown]='6'></app-month-view>
+      <app-month-view
+        #centerMonthView
+        [date]='centerMonth' 
+        [numberofWeeksShown]='6'
+        (nextClick)='onNextClick()'
+        (previousClick)='onPreviousClick()'
+      ></app-month-view>
     </td>
     <td>
-      <app-month-view [date]='getNextMonth()' [numberofWeeksShown]='6'></app-month-view>
+      <app-month-view
+        #nextMonthView
+        [date]='nextMonth' 
+        [numberofWeeksShown]='6'
+        (nextClick)='onNextClick()'
+        (previousClick)='onPreviousClick()'
+      ></app-month-view>
     </td>
   </tr>
 </table>

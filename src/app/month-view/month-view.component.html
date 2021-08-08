@@ -1,7 +1,17 @@
 <table class='calendar'>
   <tr *ngIf='days.length !== 0'>
-    <td colspan="8" class='dayFrame'>
+    <td class='dayFrame'>
+      <a (click)='onPrevious()'>
+        <div class='calendarText'>&#60;</div>
+      </a>
+    </td>
+    <td colspan="6" class='dayFrame'>
       <div class='calendarText'>{{month}}</div>
+    </td>
+    <td class='dayFrame'>
+      <a (click)='onNext()'>
+        <div class='calendarText'>&#62;</div>
+      </a>
     </td>
   </tr>
   <tr *ngIf='days.length !== 0'>
