@@ -3,6 +3,9 @@
 <br>
 <table class='calendar'>
   <tr *ngFor='let week of weeks'>
-    <td *ngFor='let day of week'>{{day}}</td>
+    <td *ngFor='let day of week' class='dayFrame'>
+      <div class='{{day.style}}'>{{day.label}}</div>
+    </td>
   </tr>
 </table>
+

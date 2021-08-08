@@ -1,6 +1,32 @@
-.calendar{
+.calendar {
   position: absolute;
   bottom: 0px;
   right: 0px;
   background-color: aquamarine;
+  border-spacing: 0px 0px;
+}
+
+.day {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding: 10px;
+  text-align: center;
+}
+
+.dayFrame {
+  border-style: solid;
+  border-width: 1px;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+}
+
+.normalDay {
+  color: black;
+}
+
+.grayDay {
+  color: gray;
+}
+
+.today {
+  color: red;
 }
