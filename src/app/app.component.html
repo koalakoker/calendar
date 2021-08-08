@@ -1,1 +1,8 @@
 <input type="date" (change)='onChange()' [(ngModel)]='date'>
+<br>
+<br>
+<table class='calendar'>
+  <tr *ngFor='let week of weeks'>
+    <td *ngFor='let day of week'>{{day}}</td>
+  </tr>
+</table>
