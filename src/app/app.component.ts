@@ -16,32 +16,48 @@ const dayFormat: string = 'YYYY-MM-DD';
 export class AppComponent implements OnInit {
   title = 'calendar';
   date: any;
-  weeks: Array<Array<DayElement>> = [];
+  days: Array<Array<DayElement>> = [];
+  weeks: Array<number> = [];
+  month: string = '';
   
   ngOnInit() {
+    moment.updateLocale('it', {
+      week: {
+        dow: 1,
+        doy: 4
+      }
+    });
   }
   
   onChange() {
     let m = moment(this.date);
     const currentMonth = m.month();
-    m.subtract(m.date() - 1,'d'); // Go back to first day of the month
-    m.subtract(m.day(),'d'); // Go back to first day of the week
-    for (let w = 0; w < 5; w++) {
+    this.month = m.format('MMM');
+    m.startOf('month');
+    m.startOf('week');
+    for (let w = 0; w < 6; w++) {
       let week = [];
+      this.weeks[w] = m.week();
       for (let i = 0; i < 7; i++) {
         let dayElement = new DayElement();
         dayElement.label = m.format('D');
-        dayElement.style = 'day normalDay';
+        dayElement.style = 'calendarText'
         if (m.month() !== currentMonth) {
-          dayElement.style = 'day grayDay';
+          dayElement.style += ' otherMonthDay';
+        } else if (m.format(dayFormat) == moment().format(dayFormat)) {
+          dayElement.style += ' today';
+        } else {
+          dayElement.style += ' normalDay';
         }
-        if (m.format(dayFormat) == moment().format(dayFormat)) {
-          dayElement.style = 'day today';
+        if ((m.day() === 0) || ((m.day() === 6))) {
+          dayElement.style += ' offWork';
+        } else {
+          dayElement.style += ' workingDay';
         }
         week[i] = dayElement;
         m.add(1,'d');
       }
-      this.weeks[w] = week;
+      this.days[w] = week;
     }
   }
 }

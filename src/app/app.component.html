@@ -2,8 +2,26 @@
 <br>
 <br>
 <table class='calendar'>
-  <tr *ngFor='let week of weeks'>
-    <td *ngFor='let day of week' class='dayFrame'>
+  <tr *ngIf='days.length !== 0'>
+    <td colspan="8" class='dayFrame'>
+      <div class='calendarText'>{{month}}</div>
+    </td>
+  </tr>
+  <tr *ngIf='days.length !== 0'>
+    <td class='dayFrame'><div class='calendarText'>wk</div></td>
+    <td class='dayFrame'><div class='calendarText'>Lu</div></td>
+    <td class='dayFrame'><div class='calendarText'>Ma</div></td>
+    <td class='dayFrame'><div class='calendarText'>Me</div></td>
+    <td class='dayFrame'><div class='calendarText'>Gi</div></td>
+    <td class='dayFrame'><div class='calendarText'>Ve</div></td>
+    <td class='dayFrame'><div class='calendarText'>Sa</div></td>
+    <td class='dayFrame'><div class='calendarText'>Do</div></td>
+  </tr>
+  <tr *ngFor='let daysOfTheWeek of days; index as w;'>
+    <td class='dayFrame'>
+      <div class='calendarText'>{{weeks[w]}}</div>
+    </td>
+    <td *ngFor='let day of daysOfTheWeek' class='dayFrame'>
       <div class='{{day.style}}'>{{day.label}}</div>
     </td>
   </tr>
