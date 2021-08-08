@@ -25,13 +25,18 @@ export class AppComponent implements OnInit {
   
   onChange() {
     let m = moment(this.date);
-    console.log(m.format());
+    //console.log(m.format());
     //console.log('Week: ' + m.week());    
-    console.log('Giorno della settimana: ' + weekDayName[m.day()]);
+    //console.log('Giorno della settimana: ' + weekDayName[m.day()]);
+    m.subtract(m.date() - 1,'d'); // Go back to first day of the month
     m.subtract(m.day(),'d'); // Go back to first day of the week
-    for (let i = 0; i < 7; i++) {
-      console.log(m.format('Do'));
-      m.add(1,'d');
+    for (let w = 0; w < 5; w++) {
+      let outStr = '';
+      for (let i = 0; i < 7; i++) {
+        outStr += m.format('Do MMM') + ' ';
+        m.add(1,'d');
+      }
+      console.log(outStr);
     }
   }
 }
