@@ -23,6 +23,7 @@
 
 .dayFrame {
   padding: 0px;
+  cursor: default;
 }
 
 .normalDay {
@@ -52,5 +53,10 @@
 }
 
 .buttonStyle {
+  height: 23px;
+  cursor: pointer;
+}
+
+.headerStyle {
   height: 23px;
 }
