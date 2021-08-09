@@ -1,48 +1,50 @@
 <table class='calendar'>
   <tr *ngIf='days.length !== 0'>
-    <td class='dayFrame'>
+    <td class='dayFrame buttonStyle'>
       <a (click)='onPrevious()'>
-        <div class='calendarText'>&#60;</div>
+        <div class='calendarText headerText buttonStyle'>&#60;</div>
       </a>
     </td>
     <td colspan="6" class='dayFrame'>
-      <div class='calendarText'>{{month}}</div>
+      <div class='calendarText headerText buttonStyle'>{{month}}
+        <input #yearInput [(ngModel)]='year' (change)='onChange()' class='calendarText headerText yearInput' type="text" size="4" maxlength="4">
+      </div>
     </td>
     <td class='dayFrame'>
       <a (click)='onNext()'>
-        <div class='calendarText'>&#62;</div>
+        <div class='calendarText headerText buttonStyle'>&#62;</div>
       </a>
     </td>
   </tr>
   <tr *ngIf='days.length !== 0'>
     <td class='dayFrame'>
-      <div class='calendarText'>wk</div>
+      <div class='calendarText headerText'>wk</div>
     </td>
     <td class='dayFrame'>
-      <div class='calendarText'>Lu</div>
+      <div class='calendarText headerText'>Lu</div>
     </td>
     <td class='dayFrame'>
-      <div class='calendarText'>Ma</div>
+      <div class='calendarText headerText'>Ma</div>
     </td>
     <td class='dayFrame'>
-      <div class='calendarText'>Me</div>
+      <div class='calendarText headerText'>Me</div>
     </td>
     <td class='dayFrame'>
-      <div class='calendarText'>Gi</div>
+      <div class='calendarText headerText'>Gi</div>
     </td>
     <td class='dayFrame'>
-      <div class='calendarText'>Ve</div>
+      <div class='calendarText headerText'>Ve</div>
     </td>
     <td class='dayFrame'>
-      <div class='calendarText'>Sa</div>
+      <div class='calendarText headerText'>Sa</div>
     </td>
     <td class='dayFrame'>
-      <div class='calendarText'>Do</div>
+      <div class='calendarText headerText'>Do</div>
     </td>
   </tr>
   <tr *ngFor='let daysOfTheWeek of days; index as w;'>
     <td class='dayFrame'>
-      <div class='calendarText'>{{weeks[w]}}</div>
+      <div class='calendarText weekText'>{{weeks[w]}}</div>
     </td>
     <td *ngFor='let day of daysOfTheWeek' class='dayFrame'>
       <div class='{{day.style}}'>{{day.label}}</div>

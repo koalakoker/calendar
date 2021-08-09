@@ -1,10 +1,14 @@
 .calendar {
-  background-color: aquamarine;
   border-spacing: 0px 0px;
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  border-right-style: solid;
-  border-right-width: 1px;
+}
+
+.headerText {
+  color: white;
+  background-color: rgb(117, 0, 241);
+}
+
+.weekText {
+  color: rgb(117, 0, 241);
 }
 
 .calendarText {
@@ -18,10 +22,7 @@
 }
 
 .dayFrame {
-  border-style: solid;
-  border-width: 1px;
-  border-bottom-width: 0px;
-  border-right-width: 0px;
+  padding: 0px;
 }
 
 .normalDay {
@@ -42,4 +43,14 @@
 
 .offWork {
   background-color: darkgray;
+}
+
+.yearInput {
+  padding: 0px;
+  border-width: 0;
+  font-size: 16px;
+}
+
+.buttonStyle {
+  height: 23px;
 }

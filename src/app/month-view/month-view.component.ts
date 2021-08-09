@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import * as moment from 'node_modules/moment';
 
 class DayElement {
@@ -19,10 +19,13 @@ export class MonthViewComponent implements OnInit {
   @Input() numberofWeeksShown: any;
   @Output() nextClick = new EventEmitter<void>();
   @Output() previousClick = new EventEmitter<void>();
+  @Output() yearChanged = new EventEmitter<number>();
+  @ViewChild('yearInput') yearInput: ElementRef | undefined;
 
   days: Array<Array<DayElement>> = [];
   weeks: Array<number> = [];
   month: string = '';
+  year: string = '';
 
   constructor() { }
 
@@ -34,6 +37,7 @@ export class MonthViewComponent implements OnInit {
     let m = moment(date);
     const currentMonth = m.month();
     this.month = m.format('MMM');
+    this.year = m.format('YYYY');
     m.startOf('month');
     m.startOf('week');
     for (let w = 0; w < this.numberofWeeksShown; w++) {
@@ -70,8 +74,11 @@ export class MonthViewComponent implements OnInit {
     this.nextClick.emit();
   }
 
-  test() {
-    console.log("Test");
+  onChange() {
+    this.yearChanged.emit(parseInt(this.year));
+    if (this.yearInput) {
+      this.yearInput.nativeElement.blur();
+    }
   }
 
 }

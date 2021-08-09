@@ -55,4 +55,19 @@ export class ThreeMonthViewComponent implements OnInit {
     }
   }
 
+  onYearChanged(year: number) {
+    if (this.previousMonthView) {
+      this.previousMonth.year(year);
+      this.previousMonthView.show(this.previousMonth);
+    }
+    if (this.centerMonthView) {
+      this.centerMonth.year(year);
+      this.centerMonthView.show(this.centerMonth);
+    }
+    if (this.nextMonthView) {
+      this.nextMonth.year(year);
+      this.nextMonthView.show(this.nextMonth);
+    }
+  }
+
 }
