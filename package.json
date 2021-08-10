@@ -1,6 +1,7 @@
 {
   "name": "calendar",
-  "version": "0.0.0",
+  "version": "1.0.1",
+  "author": {"name": "koalakoker", "email": "koalakoker@gmail.com"},
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
